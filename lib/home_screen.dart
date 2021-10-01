@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:sample_widgets/form.dart';
 
 class homePage extends StatefulWidget {
   const homePage({Key? key}) : super(key: key);
@@ -23,8 +24,10 @@ class _homePageState extends State<homePage> {
                   'Click Here For Next Page',
                   style: TextStyle(color: Colors.red),
                 ),
+                const SizedBox(width: 15.0),
                 ElevatedButton(
-                  onPressed: () => Navigator.pop(context),
+                  onPressed: () => Navigator.push(
+                      context, MaterialPageRoute(builder: (_) => FormScreen())),
                   child: const Text('Next'),
                 )
               ],
