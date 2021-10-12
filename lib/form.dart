@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
+
 import 'package:sample_widgets/button.dart';
 
 class FormScreen extends StatefulWidget {
@@ -21,35 +21,17 @@ class _FormScreenState extends State<FormScreen> {
     setState(() => _value = 'Change $value');
   }
 
-  void _showBottom() {
-    showModalBottomSheet<void>(
-        context: context,
-        builder: (BuildContext context) {
-          return Container(
-            padding: const EdgeInsets.all(15.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const <Widget>[
-                Text(
-                  'Click Here For Next Page',
-                  style: TextStyle(color: Colors.red),
-                ),
 
-              ],
-            ),
-          );
-        });
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Form Page'),
+        title: const Text('Form Page'),
         centerTitle: true,
       ),
       body: Container(
-        padding: EdgeInsets.all(50.0),
+        padding: const EdgeInsets.all(50.0),
         child: Center(
           child: SingleChildScrollView(
             child: Column(
@@ -73,7 +55,7 @@ class _FormScreenState extends State<FormScreen> {
                         controller: userName,
                         autocorrect: true,
                         decoration: const InputDecoration(
-                      hintText: 'Enter Username',
+                          hintText: 'Enter Username',
                         ),
                       ),
                     ),
@@ -118,7 +100,8 @@ class _FormScreenState extends State<FormScreen> {
                 ),
                 FlatButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => ButtonDemo()) );
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => const ButtonDemo()));
                   },
                   child: const Text('Next'),
                 ),

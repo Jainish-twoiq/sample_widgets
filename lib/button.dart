@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:sample_widgets/listview.dart';
@@ -11,6 +13,8 @@ class ButtonDemo extends StatefulWidget {
 
 class _ButtonDemoState extends State<ButtonDemo> {
   String val = "1";
+  bool value1 = false;
+  bool value2 = false;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +28,13 @@ class _ButtonDemoState extends State<ButtonDemo> {
         child: Center(
           child: Column(
             children: [
-              // Checkbox(value: _value1, onChanged: _value1Change),
+              CheckboxListTile(
+                  value: value1,
+                  onChanged: (value)  {
+                    setState(() {
+                      value1 = value!;
+                    });
+                  }),
               RadioListTile(
                 value: " 1",
                 groupValue: val,
@@ -59,7 +69,7 @@ class _ButtonDemoState extends State<ButtonDemo> {
                   const Expanded(child: SizedBox(width: 150.0)),
                   ElevatedButton(
                       onPressed: () => Navigator.push(context,
-                          MaterialPageRoute(builder: (_) => ListViewTemp())),
+                          MaterialPageRoute(builder: (_) => const ListViewTemp())),
                       child: const Text('Next')),
                 ],
               ),
